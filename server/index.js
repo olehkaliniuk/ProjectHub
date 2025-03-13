@@ -8,7 +8,7 @@ const PORT = 3000;
 const cors = require("cors");
 app.use(bodyParser.json());
 app.use(cors());
-///now i should work
+
 
 // Database connection
 const connection = mysql.createConnection({

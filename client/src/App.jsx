@@ -43,14 +43,16 @@ function App() {
       .catch(error => console.error("Fehler beim Abrufen der Benutzer:", error));
   }, []);
 
-  // Live update on Admin login
+  // schow all tasks
   useEffect(() => {
-    if (globalAdmin === "1") {
       axios.get("http://localhost:3000/")
-        .then(response => setTasks(response.data))
+        .then(response => {
+          setTasks(response.data);
+        })
         .catch(error => console.error("Fehler beim Abrufen der Aufgaben:", error));
-    }
-  }, [globalAdmin]);
+    
+  });
+  
 
   const handleUserSelect = (userId) => {
     setSelectedUsers(prevSelected =>
@@ -76,7 +78,7 @@ function App() {
     axios.post("http://localhost:3000/createTask", taskData)
       .then(res => {
         console.log("Task erstellt:", res.data);
-        setTasks(prevTasks => [...prevTasks, res.data]); // Neu erstellte Aufgabe hinzufügen
+        setTasks(prevTasks => [...prevTasks, res.data]); 
       })
       .catch(err => console.error("Fehler beim Erstellen der Aufgabe:", err));
   };
@@ -172,13 +174,15 @@ function App() {
         )}
 
         <h2>Aufgabenliste</h2>
+        <div className='formreg'>
         {tasks.map((task) => (
-          <ul key={task.id}>
+          <ul key={task.id} >
             <li><strong>Name:</strong> {task.name}</li>
             <li><strong>Beschreibung:</strong> {task.description}</li>
             <li><strong>Erstellt von:</strong> {task.created_by}</li>
           </ul>
         ))}
+        </div>
 
         <h2>Login Daten</h2>
         <div>{message}</div>
