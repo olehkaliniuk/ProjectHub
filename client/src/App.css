@@ -5,6 +5,8 @@
     font-weight: 500;
     font-style: normal;
     background-color: #1C1C1E;
+    padding: 0;
+    margin: 0;
 }
 
 h2{
@@ -39,3 +41,48 @@ button{
     border: 1px solid #6A5ACD;
 }
 
+
+.containerBR {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+
+
+.contentBR {
+    flex: 1; 
+    padding: 20px;
+}
+
+
+.sidebarconatiner{
+    background-color: #1C1C1E;
+    margin: 25px;
+}
+
+
+li{
+    list-style-type: none;
+}
+
+
+.reacticons{
+    font-size: 30px;
+}
+
+
+.sideulcont{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.sideulcont li {
+   text-align: center;
+}
+
+
+.nav{
+    color: #F2F2F2;
+}
